@@ -12,3 +12,16 @@ jobs:
             - name: Say Hello
               run: |
                 echo "Hello World!"
+    prints_datetime:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Prints Current Datetime
+              run: |
+                 date
+
+    list_dir:
+        runs-on: ubuntu-latest
+        steps:
+            - name: List directory contents
+              run: |
+                ls -la
