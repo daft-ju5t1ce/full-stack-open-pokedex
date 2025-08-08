@@ -1,0 +1,24 @@
+name: Deployment Pipeline
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    simple_deployment_pipeline:
+        runs-on: ubuntu-latest
+        steps:
+            # Pulling the code to the build machine
+            - uses: actions/checkout@v4
+            # Setting up build tools
+            - uses: actions/setup-node@v4
+              with:
+                # Will be the version running in PROD
+                node-version: 20
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Check style
+              run: npm run eslint
